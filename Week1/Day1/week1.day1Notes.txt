@@ -1,0 +1,25 @@
+Today's Agenda - Week1 Day1
+
+    # Course Introduction & EdTech Walkthrough - 9:00 to 10:00 AM
+    # Connect with Mentors - 10:00 to 10:10 AM
+    # Break - 5 mins
+    # Core Java Introduction - 10:15 to 11:00 AM
+    # Classroom - 15 mins
+    # Datatypes & Variables - 11:00 to 11:45 AM
+    # Classroom - 15 mins
+    # Control Statements - 12:00 to 12:45 PM
+    # Classroom - 15 mins
+
+
+
+Steps to create a Maven Project
+ File -> New -> Project -> Maven Project -> Click Next
+ Click on the checkbox to create a simple Project
+ GroupId -> organization name (lowercase)
+ ArtifactId -> ProjectName (PascalCase)
+ Click Finish
+
+
+ if --> red --> stop
+ if --> yellow --. slow down/ wait
+ if --> green --> Go
