@@ -1,0 +1,168 @@
+Sunday's Agenda
+===============
+8.45   to 9.00am   Recap of day1/quiz
+9.00   to 10.30am  Basic Xpath
+10.30  to 10.50am  Classroom
+10.50  to 11.00am  Break 
+11.00  to 12.30pm  Advanced Xpath
+12.30  to 12.45pm  Classroom
+12.45  to 1.00pm   Implicitly Wait
+1.00pm to 1.10pm   Recap
+----------------------------------------------------
+
+
+
+Xpath ->xml path  -->address of the element
+
+Absolute path -->long path 
+-------------
+       ->It starts from the root element ->html
+To write absolute Xpath:
+start with /
+/html/body/div[2]/div[2]/div/form/p/input
+
+Unreliable
+--------------------------------------------------------------------------
+
+Relative xpath: short path
+--------------
+starts with // -->current node of the webelement
+
+syntax based -5 ways
+
+General syntax:
+--------------
+//tagname[attributename along with the value/blacktext]
+
+Attribute based Xpath:
+---------------------
+syntax:
+//tagName[@attributename='attributeValue']
+
+Example:
+//input[@id='username']
+//input[@type='text']
+
+Text based Xpath
+----------------
+Syntax:
+//tagName[text()='blacktextValue']
+
+Example:
+//label[text()='Username']
+
+Partial Attribute based Xpath
+----------------------------
+syntax:
+//tagName[contains(@attributeName,'partial attribute value')]
+
+Example:
+//input[contains(@id,'user')]
+
+//span[contains(@class,'product-title-word-break')]
+
+Partial Text based Xpath:
+-------------------------
+syntax:
+//tagName[contains(text(),'Partial blacktextValue')]
+Example:
+//h2[contains(text(), 'Order')]
+
+Collection based Xpath:
+-----------------------
+syntax:
+(Any Relative xapth)[index]
+
+(//span[contains(@class,'a-size-large')])[3]
+(//input[@class='inputLogin'])[2]
+
+classroom:
+---------
+Find the xpath 
+https://www.nykaa.com/    -> Search box  using (name) attribute
+https://www.swiggy.com/   -> Text based (food button)
+https://www.axisbank.com/ -->Partial attribute based xpath(Login button)
+https://www.amazon.in/	--> Partial text based xpath (Bluetooth Calling)
+
+
+Advanced Xpath: -->Relative Xpath -->Relationship between the elements
+--------------
+Axes Xpath /Relationship based xpath  -8 types of Xpath
+
+GrandParent to GrandChild  (Top to Bottom)
+------------------------- 
+syntax:
+
+(Relative xpath of GrandParent)//tagName of GrandChild (optional)
+//tagName-->mandatory
+//form[@id='login']//input
+
+GrandChild to GrandParent  (Bottom to Top)
+-------------------------
+syntax:
+(relative xpath of the GrandChild)/ancestor::tagName of the GrandParent
+
+//input[@id='password']/ancestor::form
+
+Parent to Child
+---------------
+syntax:
+(relative xpath of parent)/tagname of Child
+//p/input[@id='username']
+
+Child to Parent
+---------------
+syntax:
+(relative xpath of child)/parent::tagname of Parent 
+
+//input[@id='password']/parent::p
+--------------------------------------------------------------------------
+Sibiling
+-------
+Elder sibling to Younger sibling
+--------------------------------
+syntax:
+
+(relative xpath of Elder sibling)/following-sibling::tagName of younger
+//label[@for='username']/following-sibling::input
+
+Younger sibling to elder sibling
+--------------------------------
+syntax:
+
+(Relative xpath of Younger sibling)/preceding-sibling::tagName of elder
+//input[@id='username']/preceding-sibling::label
+
+Cousin
+------
+Elder to younger Cousin
+----------------------
+(Relative xpath of Elder cousin)/following:: tagname of Younger cousin
+
+//input[@id='username']/following::input
+
+Younger to Elder Cousin:
+-----------------------
+(Relative xpath of younger cousin)/preceding::tagName of Elder Cousin
+//input[@type='submit']/preceding::label
+
+
+
+Advanced Xpath:
+===============
+1.Find the XPath of 1st resulting lead id result of find leads (Parent -child)
+Solution:
+(//div[@class='x-grid3-cell-inner x-grid3-col-partyId'])[1]/a
+
+
+2.Myntra -> mens jeans : Xpath to click on flying machine checkbox
+solution:
+(//span[@class='brand-num']/following-sibling::div)[1]
+
+3.CreateLead--> textbox in relation with  firstname
+Solution: 
+  //span[contains(text(),'First Name')]/following::input
+
+4.https://www.redbus.in/ -->From to textbox	
+    	Solution : 
+        //label[text()='From']/preceding-sibling::input

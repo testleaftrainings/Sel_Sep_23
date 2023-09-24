@@ -1,0 +1,49 @@
+Saturday's Agenda
+=================
+9.00am to 10.00am   	Selenium Introduction
+10.00am to 10.15am  	Classroom
+10.15am to 10.30am   	Break
+10.30am to 11.30am   	HTMl Tags and Selenium Locators(Id, name, class) 
+11.30am to 11.50am   	Classroom
+11.50am to 12.05pm   	Selenium Locators(link text,partial link text) 
+12.05pm to 12.10pm	    Break
+12.10pm to 12.50pm      Dropdown
+12.50pm to 1.05pm       Classroom
+1.05pm  to 1.15pm       Recap
+
+
+Selnenium Webdriver, RC, Grid, IDE
+ChromeDriver -->binaries
+driver -->object
+WebApplication
+WebPage
+Webelements--textbox, button,label,dropdown,text
+
+Dom-->Document Object Model-->HTML structure-->HTML page
+
+8 Locators
+----------
+Id
+name
+classname
+linktext
+PartialLinktext
+tagname
+xpath
+CSS
+--------------------------------
+NoSuchElement Exception
+
+Handling Dropdown:
+------------------
+Using index
+Using Value attribute
+Using visibleText
+
+Steps:
+Locate the webelement and confirm the element is having <select>
+Instantiate the Select Class and the pass the webelement as argument to Select class
+Using Select Class object call the methods
+selectByIndex()
+selectByValue()
+selectByVisibleText()   
