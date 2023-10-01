@@ -1,0 +1,95 @@
+Sunday:
+--------
+8.45AM  to 9.00AM   -Recap
+9.00Am 	to 9.45Am   -Abstraction -Interface
+9.45Am 	to 10.20Am  -Abstract class
+10.20Am to 10.40Am  -Classroom
+10.40Am to 10.55AM  -Break
+10.55Am to 12.05AM  -List-Collection
+12.05Am to 12.20PM  -Classroom
+	5 min break
+12.25pm to 12.50pm	-Set-Collection
+12.50PM to 1.00pm   -Classroom
+
+
+---------------------------------------
+Abstraction:
+-----------
+  To hide
+  Cannot see
+  unable to touch
+  Overview
+  Hide the internal details which is not required for the user but showing the needed details to them
+  
+ Interface -Class
+ Abstract -Class
+ 
+ 
+ Any Methods in a class written with a logic 
+  Method with body {logic} -->implemented method
+ 
+ 
+ Interface Class -->design or a blueprint 
+        -->No implementation 
+		-->100% Abstraction
+Purpose of using Interface -->flexibility and modularity
+
+Banking domain
+--------------
+RBI -->standards/procedure/rules 
+    followed by -->National/ Private 
+	
+	Transcation /loan -->KYC doc,cibil,rate of interest --change 
+ 
+ Method Overriding -->A Concrete class having funtionality /method with body/
+ logic is used by the subclass with different implementation 
+ 
+ A interface class having design or unimplemented/method 
+ with no body is used by a concrete class by defining logic to it
+ 
+ 
+ Class extends another class
+ interface extends anothor interface
+ class implements interface
+ class extends abstract class implements interface
+ 
+ 
+ 
+ Multiple Inheritace is achevied at interface level
+ --------------------------------------------------
+ 
+ what if concrete class doesnt require any one of the method from the interface i.e.
+ savings bank doesnt offer loans right , if the loan method implements from interface class 
+ ,it will be not required ryt
+ 
+ 
+ what if I don't want to implement all the methods  which is in interface?
+ 
+ Abstract -Class -->will allow you to use both the design and the implementation --> 0 to 100%  abstraction
+  public void transaction(); -->unimplemented method  
+  public void activateTransaction(){}-->implemented method
+  
+ 
+ ---------------------------------------
+ Example for Interface(Java) :
+ Collection -->List and Set
+ 
+ length() -->number of characters in a one single string data
+ size() -->number of elements in a collection
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
