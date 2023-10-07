@@ -1,0 +1,108 @@
+Saturday's Agenda
+------------------
+8.45AM 	to 9.30AM	 -Collection-Set
+9.30AM 	to 9.50AM    -Classroom
+9.50AM 	to 10.20AM   -Constructor,this
+10.20AM to 10.50AM   -static Keywords
+10.50AM to 11.00AM   -Break
+11.00AM to 12.00AM   -Alert and Notifications
+12.00AM to 12.15PM   -classroom
+12.15PM to 1.15PM    -Frame
+------------------------
+
+Set -->interface -->Collection
+
+	-Treeset ->stores in Ascii order
+	-HashSet ->store in random order
+	-LinkedHashSet -->stores in insertoion Order
+
+Constructor:
+-----------
+ 
+   -initialize the state of object
+   -assigns default values to the instance variables (when not initialized)
+	-Carries name as same as class name
+	
+	-->special method in java -Carries name as same as class name
+	-->doesnot return anything
+	
+	accessmodifier returntype method(input arg)-->normal
+	accessmodifier classname(input argument)-->constructor
+	
+2 types
+Default constructor
+Parmaterized Constructor
+	
+this keyword:	
+Call one Constructor which should excute the other also -Constructor Chaining
+to show the difference between the instance variable and the local variable 
+
+
+static:
+   -->support memory management
+   -->Creates memory only once
+
+
+Static -->memory -->one memory 
+final -->constant value
+
+
+Target Locators:
+---------------
+ Alert
+ Frame
+ Window handles
+ 
+ 
+ Alert:
+ -----
+ Pop up message /dialog box -->will not allow to access the other part of the application without handling it
+ -javaScript call
+ -we cannot inspect the alert
+ -cannot be ignored
+ 
+ Types of Alert:
+ --------------
+ Modal Alert
+      -Simple Alert  -->information along oneway to handle ->ok button
+	  -Prompt Alert  -->get input from the user and allow you take decision ->accept/cancel
+	  -Confirmation Alert  -->information and allows you to take decision -->accept /cancel
+ Non Modal Alert
+    -Sweet alert -->can be handled as normal weblement
+	-Information from the application -->can be inspectable and cannot be ignored
+ NoAlertPresentException: no such alert 
+ 
+ UnhandledAlertException: unexpected alert open: {Alert text : I am simple alert.}
+ Alert -->interface -->implementation class -->RemoteAlert
+ 
+ void dismiss(); -->cancel the dialog
+
+  void accept(); -->accept the dialog
+
+  String getText(); -->get the text from dialog
+
+  void sendKeys(String keysToSend); -->type in to the alert box
+-------------------------------------------------------------------------------------------------------------------
+Notification ->allow /block -->from the browser level 
+
+Frame:
+------
+  -->//iframe
+  --Right Click inspect-->view frame source/ reload frame
+  
+Step:1
+ switch the driver control to frame
+  driver.switchTo().frame(argument)
+  
+  argument
+  frame(index)
+  frame(String IdorName) -->iframe -->attributes with id and name
+  frame(WebElement) -->store the iframe element as webelement
+
+
+NoSuchElement 
+NoSuchFrameException
+NoSuchElementException
+
+defaultContent() -->switches the driver focus to main content of the webpage
+parentframe() -->switches the driver focus to the immediate parent frame
