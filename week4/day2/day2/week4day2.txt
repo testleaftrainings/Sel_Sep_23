@@ -1,0 +1,105 @@
+Agenda
+-------
+8.45AM  to 9.00AM    -Recap
+9.00AM  to 10.15AM   -WindowHandle and Screenshot
+10.15AM to 10.35AM   -Classroom
+10.35Am to 10.45AM   -Break
+10.45AM to 11.45AM   -Webtable
+11.45PM to 12.00PM   -Classroom
+12.00PM to 1.00PM    -Actions Class and Explicit wait
+
+------------------------------------------------------------------------------
+WindowHandle -->address -->unique handle -->alphanumeric character
+getWindowHandle()->get the address of current window /tab which the driver has focus
+step:1 use getWindowHandles() -->to get all the address stored 
+step:2 convert the set to list
+step:3 use switchTO() to transfer the driver focus to the required tab/window
+NoSuchWindowException: no such window
+
+
+Screenshot 
+with specific element
+with complete webpage 
+
+//To take screenshot of a single element
+		File elesrc= flightLink.getScreenshotAs(OutputType.FILE);
+		//empth file- path to save the screen shot
+		File eledestn=new File("./snap/picele.png");
+		FileUtils.copyFile(elesrc, eledestn);	
+
+https://www.irctc.co.in/nget/train-search
+Click on flights
+switchto -->flights 
+getTitle of the flight tab
+get back to the parent window 
+close the parent alone
+
+WebTable:
+--------
+ -->tabular structure in a web applictaion
+  
+  row and col
+  
+ Static Table --> table will have fixed rows and colunmns
+ Dynamic Table -->rows and colums are dynamic
+ 
+ 
+ <table> -->table name 
+ <thead> -->hold the structure of header name -tabular head
+   <tr> -->table row 
+   <th> -->table head-->inidivial col header data
+   
+   Name Id	Companyname  Phnoenumber address
+ 
+<tbody>
+<tr>  table row
+  <td> table data  --actual data based on row and col
+
+
+
+ Kalavathy 12	TCS		8392			Chennai
+   Jaffer	 13 Wipro	99302			Chennai
+   
+ ====================================================
+ 
+ Actions class -->AUI -->Advanced user Interaction ->complex gesture
+ 
+ hover on ele
+ Drag and drop
+ double click
+ rightclick
+ scroll
+ 
+ Ctrl key
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://forms.office.com/r/aQnaVectci
