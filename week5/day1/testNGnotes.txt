@@ -1,0 +1,202 @@
+Today's Agenda:
+--------------
+9.00AM  to 9.20AM   -TestNg Introduction
+9.20AM  to  9.35AM  -Basic TestNg Script
+9.35AM  to  9.50AM	-Classroom
+9.50Am  to 10.10AM  -Sequential Execution 
+10.10AM to 10.30AM  -Classroom
+10.30Am to 10.45AM	-Break
+10.45AM to 11.45AM  -Parallel Execution & Report
+11.45AM to 12.00AM  -Classroom
+12.00PM to 12.50PM  -Annotations
+12.50PM to 1.10PM   -Classroom
+
+
+----------------------------------------
+
+-->Common funtionalities -->reapeated
+-->no reports/status of the testcases
+-->Not possible to run in single run 
+-->Cross browser not possible
+-->Cannot proritize
+-->Grouping cannot be done
+-->Can't do parallel execution
+-->finding failed testcases not possible
+-----------------------------------------
+
+To overcome all the drawbcks of Plain Scripts
+
+TestNg -->Test Next Generation
+     -->Cedric -JUNIT and NUNIT
+	 -->TestNg -->Unit testing framework /Execution Framework
+	 
+Plugin -->software
+Dependencies->testng jar files
+	 
+	 
+	 https://github.com/TestLeafPages/SelAug2021/blob/main/testcase.zip
+	 Extract the files
+	 copy to the workspace
+	 
+	 Convert java class into testng testcase
+	 ----------------------------------------
+	 Convert the main method into normal method	 
+	     -Remove the static keyword and the String{} args from the main method
+	    - rename the main into meaningful method name
+	 Add @Test on top the method
+	 
+	 
+	 Sequential Execution:(Coollectively executing 5 testcases one after the other in single run)
+	 ---------------------
+	  1.Select all the testcases which are Converted into @Test 
+	  2.RightClick-->TestNG -->convert to testNG-->Pop up window -->generates .xml file-->finish
+	 Location -->rename xml -->path of the xml file
+	 
+	 
+ <suite name="LeaftapsSuite"> <!--Only one in the xml topmost layer  -->
+  <test thread-count="5" name="LeadsTest"><!--Category/ Modules- Leads,Contacts,Regression -->
+    <classes>
+      <class name="testcase.EditLead"/>
+      <class name="testcase.DeleteLead"/>
+      <class name="testcase.CreateLead"/>
+    </classes>
+  </test> <!-- Test -->
+   <test thread-count="5" name="ContactsTest">
+    <classes>
+      <class name="testcase.EditContact"/>
+      <class name="testcase.DeleteContact"/>
+      <class name="testcase.CreateContact"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test thread-count="5" name="Edge">
+    <classes>
+      <class name="testcase.EditContact"/>
+      <class name="testcase.DeleteContact"/>
+      <class name="testcase.CreateContact"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+	 
+	 <suite>-->only once in the xml
+	  <test>-->modules ->any number of tests under the suite
+	 
+	 
+from mohdjaffer1987 to everyone:    10:28 AM
+Mam you selected 5 file since 3 has the conveted to @test the count has to be shown as 3 right 
+from Sumit Gupta to everyone:    10:28 AM
+why the tread count is 5 and number of test in this file is 3 only?
+	 
+	 
+Parallel mode 
+ ------------
+  3 testcases -->open 3 chromebrowser /simulatenously
+  3-ways
+  classes
+   <suite name="Suite" >
+  <test thread-count="5"  parallel="classes" name="LeadTest">
+    <classes>
+      <class name="testcase.DeleteLead"/>
+      <class name="testcase.CreateLead"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  test 
+	 <suite name="Suite" parallel="tests">
+  <test thread-count="5"  name="LeadTest">
+    <classes>-seq
+      <class name="testcase.DeleteLead"/>
+      <class name="testcase.CreateLead"/>
+    </classes>
+  </test> <!-- Test -->
+  <test thread-count="5"  name="RegTest">
+    <classes> -Seq
+      <class name="testcase.EditLead"/>
+      <class name="testcase.CreateLead"/>
+    </classes>
+  </test> <!-- Test -->
+  
+</suite> <!-- Suite -->
+	 
+	 
+Reports:
+-------
+html report 
+           After execution -->Refrest project-->test-output folder
+		     emailable.html and index.html
+
+	 
+Recap:
+
+Converted the java class into testng
+Select @Test (Testcase) -->extecuted in seq using xml file
+
+
+Annotations:
+------------
+ A piece of information given to the testcases
+
+@Test ->mandatory annotation for execution
+Optional annotation:
+@Before
+	suite level -->@BeforeSuite
+	test level  -->@BeforeTest
+	class level -->@BeforeClass
+	method level -->@BeforeMethod
+
+
+@After
+   method level-->@AfterMethod
+   class level -->@AfterClass
+   test level -->@AfterTest
+   suite level-->@AfterSuite
+   
+ Hirerachy of TestNg Annotations
+ --------------------------------
+@BeforeSuite -->Create any connection(db..,Report)
+@BeforeTest-->Configure Test details
+@BeforeClass-->Report details with respect class
+@BeforeMethod-->PreCondition steps
+@Test -->Actual test steps with respect to testcase
+@AfterMethod  -->postCondition
+@AfterClass  -->close
+@AfterTest  ->
+@AfterSuite  
+
+
+Create BaseClass -->under the package testcase
+Create a method as preCondition ->add the steps which are common to all testcases
+Create a method as postCondition->add the common steps
+  Remove all the common steps from the testcases
+	 
+
+Xml with Two <test>
+BeforeSuite
+test1
+BeforeTest
+BeforeClass
+BeforeMethod
+  EditLead
+AfterMethod
+AfterClass
+AfterTest
+
+test2
+BeforeTest
+BeforeClass
+BeforeMethod
+  DeleteLead
+AfterMethod
+AfterClass
+AfterTest
+AfterSuite
+
+
+
+
+	 <dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.4.0</version>
+			<scope>test</scope>
+		</dependency>
