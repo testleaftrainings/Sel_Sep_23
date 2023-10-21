@@ -1,0 +1,130 @@
+Today's Agenda:
+--------------
+9.00AM  to 9.45AM  -Static Parametrization
+9.45AM  to 10.00AM -Classroom
+10.00AM to 10.30AM -Dynamic parametrization
+10.30AM to 10.40AM -classroom
+10.45AM to 10.55AM -Break
+11.00AM to 11.30AM -Read Excel
+11.25PM to 11.40PM -Classroom
+11.40PM to 12.15PM -Excel Integration
+12.15PM to 12.35PM -Classroom
+12.35PM to 12.50PM  -Common Integration
+
+
+--------------------
+Testng-->unit testing framework
+       -->seq and parallel -->testlevel /class
+	   -->annotation->pre condition and postconditions
+
+Parametrization-->Passing arguments 
+				-->sending data /different set of data
+				
+				through xml file
+				through external files -excel 
+				
+Static parametrization -->User credentils, url through xml
+						-->different browser
+						
+				@Parameters
+				<paramater> -->has parameters name and value
+				  ->suite level  -->common for all <test>
+				  ->test level -->common for all <class> 
+				  
+	Step:1 Create an xml file for the testcas and add the requried <parameter name ="" value=""></parameter>
+	Step:2 In Baseclass Add @Paramters({"url","username","password"} )
+	Step:3 Create arguments in precondition () and pass it to the teststeps
+				  
+				  common parameters we need to put after suit and  different parameters inside each
+						
+						
+Dynamic Parametrization
+------------------------
+ Parametrizing the data at the testcase level 
+ send different sets of data with respect to the testcase
+ @DataProvider -->informs the method as supplier of data
+ 
+ Step:1 Create a method and annotate the method with @DataProvider
+ Step:2 Declare a 2d String array
+ String[][] data=new String[2][3];
+ Step:3 Add return statement to the method
+ step:4 Use dataProvider attribute and assign the value as DataProvider method name
+ step:5 Create (arg)variable in the runCreate() and pass it to the steps
+ 
+ 
+ String data  
+ 
+ testcase 
+ Company name	Firstname		lastName   
+ Wipro			Subha			p
+ TCS			Sathish			Kumar
+ 
+ 
+ 2 3  -->1,1 1,2 1,3
+ 
+ 2d String array
+ String[][] data=new String[2][3];
+ 
+  Excel Sheet
+  
+ Pre requisite  ->apache POI dependency
+ Excel Sheet with repect to the testcase
+ Create a folder under the project as data
+ Copy the excel file to the data folder
+ 
+ 
+ Integrate the Excel with @DataProvider
+ --------------------------------------
+ Remove maually configured datas in @DataProvider
+ Create 2D string [][] in ReadExcel code
+ Assign the value from the excel to the String[][]
+ 
+ 				data[i][j]=stringCellValue;
+				
+				i=1
+				j=0
+				
+				dat[1][0]=Testleaf
+				data[i-1][j]
+				data[0][0]
+ 
+ MethodMatcherException -->col datas of excel sheet is not matching with parameters
+ NullPointerException
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        <dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>5.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>5.1.0</version>
+		</dependency>
+ 
