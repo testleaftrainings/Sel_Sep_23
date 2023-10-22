@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-10-22T13:04:08 IST" name="Default suite" finished-at="2023-10-22T13:04:52 IST" duration-ms="43322">
+    <groups>
+    </groups>
+    <test started-at="2023-10-22T13:04:08 IST" name="Default test" finished-at="2023-10-22T13:04:52 IST" duration-ms="43322">
+      <class name="testcase.Loginfunctionality">
+        <test-method is-config="true" signature="preCondition()[pri:0, instance:testcase.Loginfunctionality@74751b3]" started-at="2023-10-22T13:04:08 IST" name="preCondition" finished-at="2023-10-22T13:04:26 IST" duration-ms="17479" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preCondition -->
+        <test-method signature="runLogin()[pri:0, instance:testcase.Loginfunctionality@74751b3]" started-at="2023-10-22T13:04:26 IST" name="runLogin" finished-at="2023-10-22T13:04:51 IST" duration-ms="24969" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runLogin -->
+        <test-method is-config="true" signature="postCondition()[pri:0, instance:testcase.Loginfunctionality@74751b3]" started-at="2023-10-22T13:04:51 IST" name="postCondition" finished-at="2023-10-22T13:04:52 IST" duration-ms="714" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postCondition -->
+      </class> <!-- testcase.Loginfunctionality -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -1,0 +1,120 @@
+Today's Agenda:
+--------------
+9.00AM  to 9.45AM  -Common Integration
+9.45AM  to 10.00AM -Classroom
+10.00AM to 10.30AM -Attributes
+10.30AM to 10.40AM -Break
+10.40AM to 11.20AM -Actions class
+11.20AM to 11.40PM -POM -Introduction
+11.40PM to 12.15PM -POM Sequential
+12.15PM to 12.35PM -Classroom
+11.35PM to 12.45PM -Parallel Execution
+12.45PM to 1.10PM  -Classroom
+
+
+-------------------------
+
+filename -->dynamic-->read the data from the excel based on the testcase
+
+Step:1 -->parametrized the readExcel -filepath
+step:2 -->Moved the @DataProvider to baseclass
+Step:3 -->readExcel in @DataProvider needs a value -->assign the value as filename
+       -->declare a variable in baseclass as public and passed to the readExcel method
+	   
+Step:4 -->Create a method in respective testcases (CreateLead) as setValues
+       -->Assign the filename=excel file name
+	   -->Annotate the method with @BeforeTest
+	   
+	BeforeSuite
+	BeforeTest
+	BeforeClass
+ 	   @DataProvider
+	BeforeMethod
+----------------------------------------------------------------------------------------------------------------------
+Attributes:
+-----------
+@Test->set the values to control flow of execution
+
+dataProvider -->connecting @dataProvider 
+
+priority -->prioritize the test method within class
+default value=0
+
+enabled -->ignore the testcases from execution
+defaultvalue =true
+
+invocationCount-->to execute a same test case multiple times
+defaultvalue=1
+
+Set the time limits
+invocationTimeOut -->come along with invocationCount
+
+threadPoolsize -->comes along with invocationCount -->to control the threads at @Test methods
+
+
+timeOut ->normal @Test
+
+dependsOnMethods={"packagename.classname.methodname" }
+-->to inject the dependcies between the methods aand also across the classes
+
+alwaysRun =true-->to execute the method which is dependening on the @Test (which gets fail)
+
+-------------------------------------------------------------------------------------------------------------------
+
+Actions class-->AUI -Complex gesture
+
+doubleclick
+rightclick
+hover
+scroll
+drag and drop
+
+ctrl click
+
+
+-----------------------
+pom.xml 
+PageObjectModel -design pattern
+
+reusablity
+modularity
+uniformity
+better productivity
+
+-->creating object repository for the webelements and its actions in one class
+ testcase only for execution 
+
+CreateLead -->
+loginpage  -->3 methods -->username/password/login
+welcomepage -->2 methods-->crmsfa/logout
+HomePage -->Leads/accounts/opportunity
+LeadsPage-->CreateLead/FindLeads/MergeLeads
+CreateLeadPage-->
+viewLeadPage-->edit/Del/Duplicate
+
+Based on page navigation create object repository
+
+
+Steps to follow to build POM
+-----------------------------
+
+Stpe:1 Create package for 
+			base
+			pages
+			testcase
+			
+Step:2 Under base package
+ Create a class as ProjectSpecificMethod
+ Create methods for pre and post condition and annotate the method with @BeforeMethod and @AfterMethod
+
+Step:3 Under Page Package
+     Create classes for each navigation
+	 CreateLeadScenario-6 java classes 
+	 extends all the page classes with projectspecificmethod(base)
+
+Step:4 Create methods for webelements and its actions in each java class
+
+
+
+Step:5 Under testcase package
+      Create a java class and include @Test for execution
