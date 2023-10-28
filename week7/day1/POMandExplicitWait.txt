@@ -1,0 +1,77 @@
+Today's Agenda:
+--------------
+9.00AM  to 9.15AM		-Recap of POM
+9.15AM  to 9.45AM		-POM with Parallel 
+9.45AM  to 10.00AM		-Classroom
+10.00AM to 10.25AM		-POM -Parametrization
+10.25AM to 10.40AM      -classroom
+10.40AM to 10.50AM 		-Break
+10.50AM to 11.50AM 		-POM with Multilingual
+11.50AM to 12.05PM		-Classroom
+12.05AM to 12.30PM      -POM with Config
+12.30PM to 12.50PM      -Explicit wait
+12.50PM to 1.00PM		-Live Quiz
+---------------------------------------------
+
+POM -->sequential 
+static driver -->to complete the exe
+static is not possible for Parallel exe
+
+How to resolve this?
+--------------------
+ Constructor -->resolve the issue
+ 
+Steps to execute in Parallel
+----------------------------
+1.Remove the static keyword for driver
+2.Create Parametrized Constructor in each page class and pass the driver as argument
+3.Assign the driver to global variable using this 
+4.Pass the driver in all the pages methods (return statements) which connect the other page class
+
+
+Steps to integrate the Excel data:
+-----------------------------------
+Pre -Requsite ->APache POI library
+Excel book
+
+1.Create data folder under Project and add the files 
+2.Create a package as utils -->Copy and paste the readExcel class file
+3.Copy paste the @DataProvider in ProjectSpecificMethod
+4.Create a method as setValue and assign the filename and sheetIndex with respect to the testcase 
+  Annotate the method with @BeforeTest
+5.Set the dataProvider Attribute the @Test and pass the argument to the respective test methods and in page class also
+
+
+To handle Multi_Lingual app
+------------------------------
+
+Resource -->create file for english and french with .properties
+         -->data -->key=value
+		  crendentials
+		  leads
+		  create leads
+Step:1 Under ProjectSpecificMethod in preCondition() -->Using FileInputStream -->set the path of the file
+Step:2 TO read the data from the Properties file -->instantiate the Properties class and load the filepath into the prop.load()
+Step:3 Using prop.getProperty("key")
+
+
+Explicit wait:
+--------------
+
+Implicit wait-->internal/global wait  -->applicable for all findelement and findelements
+Thread.sleep(ms)-->java wait -->pause the execution -->explicit wait
+                -->slows down the execution
+Selenium -->WebDriverWait-->explicit wait-->Conditional wait
+presence of element
+stale element
+ele click
+
+
+Syntax:
+WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10))
+
+10 sec -->500ms default -revisiting on element
+if not the condition is satisfied -->TimeOut exception
+ 
+
+
