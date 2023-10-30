@@ -1,0 +1,112 @@
+Today's Agenda:
+--------------
+9.00AM  to 9.20AM		-Cucumber Introduction
+9.20AM  to 9.50AM		-Cucumber Feature 
+9.50AM  to 10.10AM		-Classroom
+10.10AM to 10.45AM		-Cucumber execution
+10.45AM to 11.05AM      -classroom
+11.05AM to 11.15AM 		-Break
+11.15AM to 11.45AM 		-Parametrization
+11.45AM to 12.00PM		-Classroom
+12.00AM to 12.30PM      -Dynamic Parametrization
+12.30PM to 12.50PM      -Classroom
+12.50PM to 1.05PM		-Background Keyword
+----------------------------------------------------------------------------------------
+
+Cucumber
+--------
+
+3 layers:
+--------
+Feature
+StepDefinition
+Runner
+
+Steps to configure cucumber feature
+---------------------------
+Step:1 Create 3 packages under src/test/java
+		feature
+		stepDef
+		runner
+Step:2 Create a feature file  with the extention as .feature under feature package
+
+
+
+<dependency>
+<groupId>io.cucumber</groupId>
+<artifactId>cucumber-java</artifactId>
+<version>7.10.1</version>
+</dependency>
+
+<dependency>
+<groupId>io.cucumber</groupId>
+<artifactId>cucumber-testng</artifactId>
+<version>7.10.1</version>
+</dependency>
+Steps to execute the feature file
+-----------------------------------
+
+Step:3 Create a java class under stepDef package
+Step:4 Create separate methods with respect to the feature lines/steps
+		methodName ->action+webElement
+Step:5 Use the Cucumber Annotation to map the feature steps with the respective java methods 		
+
+Step:6 Create a Runner class under runner package
+Step:7 extend the Runner class with AbstractTestNGCucumberTests 
+Step:8 Annotate the class @CucumberOptions(features={"featurePath"},glue="stepdefPackage",monochrome=true)
+Step:9 Execute from the Runner class as TestNg test
+
+
+
+Steps for parametrization and Background
+-----------------------------------------
+Step:1 In Feature file 
+
+Scenario: For invalid credentials
+           write the user stories
+		   for error message use But  keyword and implement the step in stepdef class
+		   
+Step:2 -->comment the preCondition steps (launch browser and load url)
+        under Feature keyword , define Background: with the preCondition steps
+
+Step:3 in the line of username and password declare the values insid the 
+		'demoSalesManager' for positive credentials
+		'demo' for invalid field
+		 
+Step:4  In Java class -
+		Parametrize the username and password methods with String arguments and pass it to sendkeys
+		In mapping the feature step use {string} to read the data from the feature file
+ 
+ Step:5 Run from the runner class
+
+Steps to do dynamic Parametrization in Cucumber:
+-------------------------------------------------
+Step:1 Create a feature file for create lead feature
+
+Step:2 Add the Scenario from launch browser to viewLead page with Scenario Outline
+
+Step:3 Use  <> to parametrize the  test data in the respective steps
+
+Step:4 Use Examples : to set the values to the feature step using ||
+
+Step:5 Implement the feature steps in java class
+
+Step:6 Execute from Runner class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://forms.office.com/r/qCjzD4wxs9
