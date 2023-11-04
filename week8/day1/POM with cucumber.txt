@@ -1,0 +1,114 @@
+Today's Agenda:
+---------------
+
+9.00AM  to 9.15AM  -Recap
+9.15AM  to 10.15AM -Hooks Implementation
+10.15AM to 10.35AM -Classroom
+10.35AM to 11.00AM -Tags
+11.00AM to 11.10AM -Break
+11.10AM to 12.00AM -POM with Cucumber
+12.00AM to 12.20AM -Classroom
+12.20AM to 12.50AM -ThreadLocal Configuration
+12.50AM to 1.00PM - Classroom
+-------------------------------------------------------
+
+Hooks Implementation:
+-------------------
+To have common configuration (feaures steps ) for all feature file 
+   -hooks -->ruby language
+   -java code along with cucumber annotation
+   
+   Step:1 Created the Hooks class under StepDef package
+   Step:2 Created pre and post Condition methods and annotated the method with @Before and @AFter
+          (Moved all the common steps to the hooks class)
+	Step:3 Extended the hooks class to all the step definition (java)classes (specific to scenario)
+	Step:4 Commented the implementation of common feature steps in feature file aswell as in Login class
+	Step:5 Execute from runner class
+	
+	InvalidMethodException: Not allowed to extend the hooks class to other java classes
+	
+	Step:6 Create a java class under step definition
+	        Declare the driver variable as static
+	Step:7 Extend the Base class to the hooks
+	Stpe:8 Extend all the other java class having step implementation also extended with BaseClass
+			
+			
+	-------------
+
+Using TestNg
+------------
+    Step:1 Move the preCondition and postCondition methods to Baseclass and extend the class with AbstractTestNGCucumberTests
+			annotate the methods with @BeforeMethod and @AfterMethod
+	Step:2 Comment the hooks class completely
+	Step:3 Extend the Runner class with BaseClass
+ 	
+Tags -->group the scenarios to be executed
+		-->feature level
+		->scenario level
+		-->any  name -author/testing
+ @name -->in feature file 
+ tags ->attribute of cucumber options for execution
+ 
+ POM with Cucumber 
+  -->allow to execute the runner with constructor call
+  
+  Create package features under src/main/java
+  Create login.feature 
+ Map with page class 
+ Using runner class extends ProjectSpecificMethod
+ ProjectSpecificMethod extends AbstractTestNGCucumberTests
+ Declaring driver as static in ProjectSpecificMethod
+ 
+ Issues:
+ 1.Static -->allow to execute the cucumber and Testng Sequential
+ 2.Constructor ->run parallel  -->allowed with TestNg
+                               -->not working for Cucumber
+  
+  Sequential and Parallel execution (TestNg &Cucumber)
+  ----------------------------------------------------
+  Thread -->execution -->safe
+  
+  Encapsulation -->binding class properties together
+   -->private to class 
+   
+   thread -->private -->shared for execution
+   
+   Abc -17-->123rt354-->login
+   Private-->give permission-->    Loginpage-->welcomepage
+	   
+   cde -18-->3452nd56-->createlead
+          Private-->give permission-->   Loginpage-->welcomepage-->HomePage-Leadspage->createLead
+  
+  getter() -->give permission 
+  setter()->set the value
+  
+  Integrate the ThreadLocal class
+  ----------------------------
+  Step:1 -->Include this code in ProjectSpecificMethod
+  private static final ThreadLocal<ChromeDriver> tldriver=new ThreadLocal<ChromeDriver>();
+	
+	
+	public void setDriver() {
+		tldriver.set(new ChromeDriver());
+	}
+	
+	public  ChromeDriver getDriver() {		
+		/*
+		 * ChromeDriver chromeDriver = tldriver.get();
+		 *  return chromeDriver;
+		 */
+		return tldriver.get();
+	}
+	
+	Step:2 
+	Call the setDriver() in preCondition (@BeforeMethod)
+	comment the driver=new ChromeDriver();
+	
+	Step:3 replace the driver with getDriver() in all the page class and in test class
+	
+  
+  
+  
+  
+  
+  
