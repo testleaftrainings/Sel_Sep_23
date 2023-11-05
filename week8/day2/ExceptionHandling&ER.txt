@@ -1,0 +1,155 @@
+Today's Agenda
+-------------
+9.00AM to 9.15AM   -Live quiz
+9.15AM to 10.15AM  -ExceptionHandling
+10.15AM to 10.30AM -Break
+10.30AM to 11.00AM -Extent Report
+11.00AM to 11.15AM -Classroom
+11.15AM to 12.30PM - ExtentReport Integration
+12.30PM to 1.00PM  - Config Properties 
+--------------------------------------------
+
+Exception:
+ runtime error
+  complie time error
+stop the program due to isssue
+it interrupt the execution
+code error
+
+Error Vs Exception
+Error -is caused by system -stack overflow
+Exception caused by program-All java and selenium exceptions
+ Abnormal condition which interrupts the flow of execution
+ 
+ Exception handling:
+   giving feedback /information about the exception ->to continue the execution
+   
+   Exception -->class
+       Runtime Exception
+	     Unchecked Exception
+		  ArrayOutofBoundException
+		  MethodMatcher 
+		  NoSuchelement
+		  InvalidSelector
+		  NullPointer
+		  NoSuchWindow		  		  
+	   Compiletime Exception
+            Checked Exception
+			   IOException
+			   Interrupted Exception 
+   
+  To handle the exception 
+try -->logic will be tried for execution 
+catch -->handled catch block
+
+try			try			try
+catch		catch			.click()
+			catch			try{
+								js.click
+								catch(){
+								}
+						catch()
+
+finally: block comes along with try block 
+           Logic to be executed irrespective of the other exception handled/not
+
+try			try 
+catch 		finally
+finally
+
+
+Compile Time Exception:
+-----------------------
+throws -->the line of code may throw exception
+throw -->explicitly throw the exception
+
+Extent Report:
+-------------
+  3rd party library -Avent stack
+  -status of the report
+  -screenshots in the reports
+  -customize the report -->category/author
+  -Graphical representation
+  -History of reports 
+
+Add the dependency
+
+<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>3.1.5</version>
+		</dependency>
+
+
+POM with ExtentReport
+---------------------
+Steps to integrate ExtentReport:
+================================
+1. Create a startReport() in BaseClass with ExtentReport declared as 
+   global variable
+    - Add the common code for all the testcases (first 4 lines of code)
+2. Create stopReport() in BaseClass with extent.flush() and apply @AfterSuite
+3. Create testcaseDetails() with test details code
+    - Declare testName, testDescription, testAuthor, testCategory as global variables
+    - Replace the hardcode values with variables
+    - apply @BeforeClass annotation for this method
+4. assgin the values for testName, testDescription, testAuthor, testCategory in setData() in each testcase
+5. Create reportStep() with 2 arguments (msg, status) in BaseClass
+6. Call the reportStep() from each step method using try / catch
+    - try block with pass status
+    - catch block with fail status
+	
+	
+@BeforeSuite      -->starting the report
+  @BeforeTest     -->test data file,testdetails
+   @BeforeClass   -->to attach the testdetails into reports
+    @DataProvider  -->to read data from excel
+	 @BeforeMethod -->precondition method
+	   @Test
+--------------------------------------------------
+
+Properties files -->string data
+
+ConfigurationManager -->owner Api (Java API)
+
+<dependency>
+			<groupId>org.aeonbits.owner</groupId>
+			<artifactId>owner</artifactId>
+			<version>1.0.12</version>
+</dependency>
+
+
+Steps to integrate Config Properties
+-------------------------------------
+	   
+Step:1 Create a interface Configuration extends Config
+       Annotate the class with @Config.Sources({"classpath:Config.properties)"}
+Step:2 Create abstract methods for the key to read the data
+		@Key("username")
+		String getUsername();
+		
+Step:3 Create a class as ConfigurationManager
+        
+		Using ConfigCache to generate instance for Configuration (interface class)
+		Add return stmt to return the instance to the class
+Step:4  Read the values in the required testcases /Test methods 
+		ConfigurationManager.configuration().getUsername();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
