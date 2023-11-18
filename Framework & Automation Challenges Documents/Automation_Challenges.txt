@@ -1,0 +1,54 @@
+STAR - Situation Task Action Result
+
+Scenario 1: Optimize the framework for StaleElementReferenceException handling
+
+Situation: In our framework, StaleElementReferenceException was handled in all the element interaction methods with simple wait (Thread.sleep) and then relocate the element & interact. This works fine, but it is taking longer time for execution if we come across StaleElementReferenceException for lot of elements
+
+Task: I was asked to optimize the framework code for StaleElementReferenceException
+
+Action: I have explored and found a WebDriverWait condition "stalenessOf" with a standard duration time as 30 seconds. 
+
+Result: The advantage of WebDriverWait is, if the condition satisfied selenium WebDriver with proceed with the interaction. By this implementation the wait time for StaleElementReferenceException is significantly reduced.
+(Time reduction will be based on the number of StaleElementReferenceException appear during the execution Eg: In our project, we have seen around 20 to 30 mins saved by this optimization)
+
+*******************************************************************************************************************************************************************************************
+Scenario 2: Enhance framework with dynamic test data
+
+Situation: We are using Excel to keep the data. Which is providing static data to the test cases. Client has raised this a concern as data whatever we create using automation looks like junk data in data base
+
+Task: I was asked to implement dynamic data for the test cases
+
+Action: I have explored APIs and libraries to dynamic data  and implemented faker one of the java library. Faker is very simple and easy to implement in our framework. 
+
+Result: Data created using Faker is dynamic and looks like real data.
+
+*******************************************************************************************************************************************************************************************
+Scenario 3: Enhance the file upload code
+
+Situation: We have to upload file in few test cases. We handled the automation using Robot class since selenium can not able to interact with window dialog.
+
+Task: Handling with Robot class is very flaky and not recommened for parallel excution. I was asked to implement better solution
+
+Action: I have explored and talk to the community experts, i came to know that File Upload can be done using sendKeys() when the element is having input tag and type="file" as attribute. In our application file upload is meeting these criteria. 
+
+Result: File upload using sendKeys() is very stable and now we can execute the test cases in parallel mode as well
+
+
+*******************************************************************************************************************************************************************************************
+
+Scenario4: Standardize the locator strategy
+
+Situation: We have around 5% failures because of xpath got changed due to new build
+
+Task: Analyzed the failures because of locators and found there is no best practice followed to write xpaths
+
+Action: Analyzed the different WebElements that we are using in the application, then categorized those WebElements with standard / solid xpaths with templates for primary and secondary xpath. I have created a Locator strategy document to follow when we write the xpath and implemented this as a process in our project.
+Eg: For a form page, we use near by lable which a static information (will not change frequently) with following to locate elements like text, dropdown etc
+
+Result: With this implementation, 5% failure rate reduced less than 1%. 
+
+
+
+
+
+
